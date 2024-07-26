@@ -1,9 +1,7 @@
-﻿namespace SignalRapi.DAL.Entities
+﻿namespace SignalR.EntityLayer.Entities
 {
     public class Discount
     {
         public int DiscountID { get; set; }
-        public int DiscountID { get; set; }
-
     }
 }
