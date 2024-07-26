@@ -1,4 +1,4 @@
-﻿namespace SignalRapi.DAL.Entities
+﻿namespace SignalR.EntitLayer.Entities
 {
     public class About
     {   
