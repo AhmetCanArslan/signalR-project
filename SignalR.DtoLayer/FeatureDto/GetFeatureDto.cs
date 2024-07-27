@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SignalR.DtoLayer.FeatureDto
 {
-    pub class GetFeatureDto
+    public class GetFeatureDto
     {
         public int FeatureID { get; set; }
         public string Title1 { get; set; }

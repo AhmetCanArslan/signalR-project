@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SignalR.DtoLayer.TestimonialDto
 {
-    public class GetTesttimonialDto
+    public class GetTestimonialDto
     {
         public int TestimonialID { get; set; }
         public string Name { get; set; }
