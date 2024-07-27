@@ -8,7 +8,7 @@ using SignalR.EntityLayer.Entities;
 
 namespace SignalR.DataAccessLayer.Abstract
 {
-    public interface IContactDal:IGenericDal<Contacts>
+    public interface IContactsDal:IGenericDal<Contacts>
     {
     }
 }

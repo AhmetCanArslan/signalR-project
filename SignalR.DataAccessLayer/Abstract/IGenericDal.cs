@@ -15,3 +15,4 @@ namespace SignalR.DataAccessLayer.Abstract
         List<T> GetAll();
     }
 }
+ 
