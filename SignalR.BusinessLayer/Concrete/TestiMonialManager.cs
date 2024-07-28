@@ -10,11 +10,11 @@ using SignalR.EntityLayer.Entities;
 
 namespace SignalR.BusinessLayer.Concrete
 {
-    public class TestiMonialService : ITestimonialService
+    public class TestiMonialManager : ITestimonialService
     {
         private readonly ITestimonialDal _testimonialService;
 
-        public TestiMonialService(ITestimonialDal testimonialService)
+        public TestiMonialManager(ITestimonialDal testimonialService)
         {
             _testimonialService = testimonialService;
         }

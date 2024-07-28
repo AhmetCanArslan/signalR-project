@@ -34,6 +34,9 @@ builder.Services.AddScoped<IProductDal, EfProductDal>();
 builder.Services.AddScoped<ISocialMediaService, SocialMediaManager>();
 builder.Services.AddScoped<ISocialMediaDal, EfSocialMediaDal>();
 
+builder.Services.AddScoped<ITestimonialService, TestiMonialManager>();
+builder.Services.AddScoped<ITestimonialDal, EfTestimonialDal>();
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
