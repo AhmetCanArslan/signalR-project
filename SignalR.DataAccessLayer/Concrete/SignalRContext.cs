@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using SignalR.EntitLayer.Entities;
 using SignalR.EntityLayer.Entities;
-using SignalRapi.DAL.Entities;
+using SignalR.EntityLayer.Entities;
 
 namespace SignalR.DataAccessLayer.Concrete
 {
