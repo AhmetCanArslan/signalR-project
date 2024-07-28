@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using SignalR.EntityLayer.Entities;
-using SignalR.EntityLayer.Entities;
 
 namespace SignalR.DataAccessLayer.Concrete
 {
@@ -16,7 +15,7 @@ namespace SignalR.DataAccessLayer.Concrete
             optionsBuilder.UseSqlServer("Server=VICTUS;initial Catalog=SignalRDb;Integrated Security=True;TrustServerCertificate=True");
         }
 
-        public DbSet<About> Abouts { get; set; }
+        public DbSet<About> About { get; set; }
         public DbSet<Booking> Bookings { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Contacts> Contacts { get; set; }
