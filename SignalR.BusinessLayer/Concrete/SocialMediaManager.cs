@@ -20,26 +20,27 @@ namespace SignalR.BusinessLayer.Concrete
 
         public void TAdd(SocialMedia entity)
         {
-            throw new NotImplementedException();
+            _socialMediaDal.Add(entity);
         }
 
         public void TDelete(SocialMedia entity)
         {
-            throw new NotImplementedException();
+            _socialMediaDal.Delete(entity);
         }
 
-        public List<SocialMedia> TGetAll()        {
-            throw new NotImplementedException();
+        public List<SocialMedia> TGetAll()        
+        {
+            return _socialMediaDal.GetAll();
         }
 
         public SocialMedia TGetById(int id)
         {
-            throw new NotImplementedException();
+            return _socialMediaDal.GetById(id);
         }
 
         public void TUpdate(SocialMedia entity)
         {
-            throw new NotImplementedException();
+            _socialMediaDal.Update(entity);
         }
     }
 }
