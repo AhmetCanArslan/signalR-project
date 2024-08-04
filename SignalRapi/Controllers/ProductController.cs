@@ -39,7 +39,8 @@ namespace SignalRapi.Controllers
                 ProductDescription = createProductDto.ProductDescription,
                 ProductName = createProductDto.ProductName,
                 ProductPrice = createProductDto.ProductPrice,
-                ProductStatus = createProductDto.ProductStatus
+                ProductStatus = createProductDto.ProductStatus,
+                CategoryID = createProductDto.CategoryID
 
             });
             return Ok("Ürün Eklendi");
