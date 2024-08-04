@@ -45,7 +45,7 @@ namespace SignalRapi.Controllers
             return Ok("Ürün Eklendi");
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteProduct(int id)
         {
             var value = _productService.TGetById(id);

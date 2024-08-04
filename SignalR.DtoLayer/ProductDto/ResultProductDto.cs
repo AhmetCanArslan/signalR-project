@@ -14,5 +14,6 @@ namespace SignalR.DtoLayer.ProductDto
         public decimal ProductPrice { get; set; }
         public string ImageUrl { get; set; }
         public bool ProductStatus { get; set; }
+        public string CategoryName { get; set; }
     }
 }
