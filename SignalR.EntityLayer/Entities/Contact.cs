@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SignalR.DtoLayer.ContactsDto
+﻿namespace SignalR.EntityLayer.Entities
 {
-    public class ResultContactsDto
+    public class Contact
     {
         public int ContactID { get; set; }
         public string Location { get; set; }

@@ -5,10 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using SignalR.EntityLayer.Entities;
 
-
-namespace SignalR.DataAccessLayer.Abstract
+namespace SignalR.BusinessLayer.Abstract
 {
-    public interface IContactsDal:IGenericDal<Contacts>
+    public interface IContactService : IGenericService<Contact>
     {
     }
 }

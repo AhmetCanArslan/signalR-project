@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SignalR.DtoLayer.ContactsDto
+namespace SignalR.DtoLayer.ContactDto
 {
-    public class UpdateContactsDto
+    public class UpdateContactDto
     {
         public int ContactID { get; set; }
         public string Location { get; set; }
