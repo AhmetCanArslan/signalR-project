@@ -32,10 +32,10 @@ namespace SignalRapi.Controllers
         {
             _contactsService.TAdd(new Contacts()
             {
-               FooterDescription = createContactsDto.FooterDescription,
-               Location = createContactsDto.Location,
-               Mail = createContactsDto.Mail,
-               Phone = createContactsDto.Phone,
+                FooterDescription = createContactsDto.FooterDescription,
+                Location = createContactsDto.Location,
+                Mail = createContactsDto.Mail,
+                Phone = createContactsDto.Phone,
             });
             return Ok("İletişim Bilgisi eklendi");
         }
@@ -46,7 +46,7 @@ namespace SignalRapi.Controllers
             _contactsService.TDelete(value);
             return Ok("İletişim bilgisi silindi");
         }
-        [HttpGet("GetContacts")]
+        [HttpGet("{id}}")]
         public IActionResult GetContacts(int id)
         {
             var value = _contactsService.TGetById(id);

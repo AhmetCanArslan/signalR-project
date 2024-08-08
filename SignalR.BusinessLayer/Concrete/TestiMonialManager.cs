@@ -1,47 +1,46 @@
-﻿using System;
+﻿using SignalR.BusinessLayer.Abstract;
+using SignalR.DataAccessLayer.Abstract;
+using SignalR.EntityLayer.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore.Query.Internal;
-using SignalR.BusinessLayer.Abstract;
-using SignalR.DataAccessLayer.Abstract;
-using SignalR.EntityLayer.Entities;
 
 namespace SignalR.BusinessLayer.Concrete
 {
-    public class TestiMonialManager : ITestimonialService
+    public class TestimonialManager : ITestoimonialService
     {
-        private readonly ITestimonialDal _testimonialService;
+        private readonly ITestimonialDal _testimonialDal;
 
-        public TestiMonialManager(ITestimonialDal testimonialService)
+        public TestimonialManager(ITestimonialDal testimonialDal)
         {
-            _testimonialService = testimonialService;
+            _testimonialDal = testimonialDal;
         }
 
         public void TAdd(Testimonial entity)
         {
-            _testimonialService.Add(entity);
+            _testimonialDal.Add(entity);
         }
 
         public void TDelete(Testimonial entity)
         {
-            _testimonialService.Delete(entity);
+            _testimonialDal.Delete(entity);
         }
 
-        public List<Testimonial> TGetAll()
+        public Testimonial TGetByID(int id)
         {
-            return _testimonialService.GetAll();
+            return _testimonialDal.GetByID(id);
         }
 
-        public Testimonial TGetById(int id)
+        public List<Testimonial> TGetListAll()
         {
-            return _testimonialService.GetById(id);
+            return _testimonialDal.GetListAll();
         }
 
         public void TUpdate(Testimonial entity)
         {
-            _testimonialService.Update(entity);
+            _testimonialDal.Update(entity);
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿
 @{
-	Layout = null;
+    Layout = null;
 }
 
 <!DOCTYPE html>
@@ -10,16 +10,16 @@
 	<div class="wrapper">
 		@await Component.InvokeAsync("_LayoutNavbarComponentPartial")
 
-		@await Component.InvokeAsync("_LayoutSideBarComponentPartial")
+		@await Component.InvokeAsync("_LayoutSidebarComponentPartial")
+	
 		
 		<div class="main-panel">
+
 			@RenderBody()
 
 			@await Component.InvokeAsync("_LayoutFooterComponentPartial")
 		</div>
 	</div>
-	
 	@await Component.InvokeAsync("_LayoutScriptComponentPartial")
 </body>
-
 </html>

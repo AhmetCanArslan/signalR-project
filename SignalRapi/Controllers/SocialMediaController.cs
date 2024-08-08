@@ -2,11 +2,11 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SignalR.BusinessLayer.Abstract;
-using SignalR.DtoLayer.ProductDto;
 using SignalR.DtoLayer.SocialMediaDto;
+using SignalR.DtoLayer.TestimonialDto;
 using SignalR.EntityLayer.Entities;
 
-namespace SignalRapi.Controllers
+namespace SignalRApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -14,7 +14,6 @@ namespace SignalRapi.Controllers
     {
         private readonly ISocialMediaService _socialMediaService;
         private readonly IMapper _mapper;
-
         public SocialMediaController(ISocialMediaService socialMediaService, IMapper mapper)
         {
             _socialMediaService = socialMediaService;
@@ -22,35 +21,33 @@ namespace SignalRapi.Controllers
         }
 
         [HttpGet]
-        public IActionResult Productlist()
+        public IActionResult SocialMediaList()
         {
-            var value = _mapper.Map<List<ResultSocialMediaDto>>(_socialMediaService.TGetAll());
+            var value = _mapper.Map<List<ResultSocialMediaDto>>(_socialMediaService.TGetListAll());
             return Ok(value);
         }
-
         [HttpPost]
         public IActionResult CreateSocialMedia(CreateSocialMediaDto createSocialMediaDto)
         {
             _socialMediaService.TAdd(new SocialMedia()
             {
-               Icon = createSocialMediaDto.Icon,
-               Title = createSocialMediaDto.Title,
-               Url = createSocialMediaDto.Url
+              Icon=createSocialMediaDto.Icon,
+              Title=createSocialMediaDto.Title,
+              Url=createSocialMediaDto.Url
             });
-            return Ok("Sosyal medya bilgileri Eklendi");
+            return Ok("Sosyal Medya Bilgisi Eklendi");
         }
-
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteSocialMedia(int id)
         {
-            var value = _socialMediaService.TGetById(id);
+            var value = _socialMediaService.TGetByID(id);
             _socialMediaService.TDelete(value);
-            return Ok("Sosyal medya silindi");
+            return Ok("Sosyal Medya Bilgisi Silindi");
         }
-        [HttpGet("GetSocialMedia")]
+        [HttpGet("{id}")]
         public IActionResult GetSocialMedia(int id)
         {
-            var value = _socialMediaService.TGetById(id);
+            var value = _socialMediaService.TGetByID(id);
             return Ok(value);
         }
         [HttpPut]
@@ -61,11 +58,9 @@ namespace SignalRapi.Controllers
                 Icon = updateSocialMediaDto.Icon,
                 Title = updateSocialMediaDto.Title,
                 Url = updateSocialMediaDto.Url,
-                SocialMediaID = updateSocialMediaDto.SocialMediaID
-
+                SocialMediaID=updateSocialMediaDto.SocialMediaID
             });
-            return Ok("Sosyal medya bilgileri güncellendi");
-
+            return Ok("Sosyal Medya Bilgisi Güncellendi");
         }
     }
 }

@@ -11,7 +11,7 @@ namespace SignalR.BusinessLayer.Abstract
         void TAdd(T entity);
         void TDelete(T entity);
         void TUpdate(T entity);
-        T TGetById(int id);
-        List<T> TGetAll();
+        T TGetByID(int id);
+        List<T> TGetListAll();
     }
 }

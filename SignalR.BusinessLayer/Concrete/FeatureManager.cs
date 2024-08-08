@@ -1,11 +1,11 @@
-﻿using System;
+﻿using SignalR.BusinessLayer.Abstract;
+using SignalR.DataAccessLayer.Abstract;
+using SignalR.EntiyLayer.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SignalR.BusinessLayer.Abstract;
-using SignalR.DataAccessLayer.Abstract;
-using SignalR.EntityLayer.Entities;
 
 namespace SignalR.BusinessLayer.Concrete
 {
@@ -20,7 +20,7 @@ namespace SignalR.BusinessLayer.Concrete
 
         public void TAdd(Feature entity)
         {
-            _featureDal.Add(entity);
+           _featureDal.Add(entity);
         }
 
         public void TDelete(Feature entity)
@@ -28,19 +28,19 @@ namespace SignalR.BusinessLayer.Concrete
             _featureDal.Delete(entity);
         }
 
-        public List<Feature> TGetAll()
+        public Feature TGetByID(int id)
         {
-            return _featureDal.GetAll();
+           return _featureDal.GetByID(id);
         }
 
-        public Feature TGetById(int id)
+        public List<Feature> TGetListAll()
         {
-            return _featureDal.GetById(id);
+            return _featureDal.GetListAll();
         }
 
         public void TUpdate(Feature entity)
         {
-            _featureDal.Update(entity);
+           _featureDal.Update(entity);
         }
     }
 }

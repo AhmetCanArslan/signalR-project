@@ -1,11 +1,11 @@
-﻿using System;
+﻿using SignalR.BusinessLayer.Abstract;
+using SignalR.DataAccessLayer.Abstract;
+using SignalR.EntityLayer.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SignalR.BusinessLayer.Abstract;
-using SignalR.DataAccessLayer.Abstract;
-using SignalR.EntityLayer.Entities;
 
 namespace SignalR.BusinessLayer.Concrete
 {
@@ -20,22 +20,22 @@ namespace SignalR.BusinessLayer.Concrete
 
         public void TAdd(SocialMedia entity)
         {
-            _socialMediaDal.Add(entity);
+           _socialMediaDal.Add(entity);
         }
 
         public void TDelete(SocialMedia entity)
         {
-            _socialMediaDal.Delete(entity);
+           _socialMediaDal.Delete(entity);
         }
 
-        public List<SocialMedia> TGetAll()        
+        public SocialMedia TGetByID(int id)
         {
-            return _socialMediaDal.GetAll();
+           return _socialMediaDal.GetByID(id);
         }
 
-        public SocialMedia TGetById(int id)
+        public List<SocialMedia> TGetListAll()
         {
-            return _socialMediaDal.GetById(id);
+            return _socialMediaDal.GetListAll();
         }
 
         public void TUpdate(SocialMedia entity)

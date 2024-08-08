@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SignalR.BusinessLayer.Abstract;
 using SignalR.DtoLayer.CategoryDto;
-using SignalR.EntityLayer.Entities;
+using SignalR.EntiyLayer.Entities;
 
-namespace SignalRapi.Controllers
+namespace SignalRApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -13,7 +13,6 @@ namespace SignalRapi.Controllers
     {
         private readonly ICategoryService _categoryService;
         private readonly IMapper _mapper;
-
         public CategoryController(ICategoryService categoryService, IMapper mapper)
         {
             _categoryService = categoryService;
@@ -22,9 +21,28 @@ namespace SignalRapi.Controllers
         [HttpGet]
         public IActionResult CategoryList()
         {
-            var value = _mapper.Map<List<ResultCategoryDto>>(_categoryService.TGetAll());
+            var value = _mapper.Map<List<ResultCategoryDto>>(_categoryService.TGetListAll());
             return Ok(value);
         }
+
+        [HttpGet("CategoryCount")]
+        public IActionResult CategoryCount()
+        {
+            return Ok(_categoryService.TCategoryCount());
+        }
+
+        [HttpGet("ActiveCategoryCount")]
+        public IActionResult ActiveCategoryCount()
+        {
+            return Ok(_categoryService.TActiveCategoryCount());
+        }
+
+        [HttpGet("PassiveCategoryCount")]
+        public IActionResult PassiveCategoryCount()
+        {
+            return Ok(_categoryService.TPassiveCategoryCount());
+        }
+
         [HttpPost]
         public IActionResult CreateCategory(CreateCategoryDto createCategoryDto)
         {
@@ -33,19 +51,19 @@ namespace SignalRapi.Controllers
                 CategoryName = createCategoryDto.CategoryName,
                 Status = true
             });
-            return Ok("Kategori eklendi");
+            return Ok("Kategori Eklendi");
         }
         [HttpDelete("{id}")]
         public IActionResult DeleteCategory(int id)
         {
-            var value = _categoryService.TGetById(id);
+            var value = _categoryService.TGetByID(id);
             _categoryService.TDelete(value);
-            return Ok("Kategori silindi");
+            return Ok("Kategori Silindi");
         }
         [HttpGet("{id}")]
         public IActionResult GetCategory(int id)
         {
-            var value = _categoryService.TGetById(id);
+            var value = _categoryService.TGetByID(id);
             return Ok(value);
         }
         [HttpPut]
@@ -54,11 +72,10 @@ namespace SignalRapi.Controllers
             _categoryService.TUpdate(new Category()
             {
                 CategoryName = updateCategoryDto.CategoryName,
-                CategoryID = updateCategoryDto.CategoryID,
+                CategoryID=updateCategoryDto.CategoryID,
                 Status = updateCategoryDto.Status
             });
-            return Ok("Kategori güncellendi");
-           
+            return Ok("Kategori Güncellendi");
         }
     }
 }

@@ -1,60 +1,37 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using SignalR.EntityLayer.Entities;
+using SignalR.EntiyLayer.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using SignalR.EntityLayer.Entities;
 
 namespace SignalR.DataAccessLayer.Concrete
 {
-    public class SignalRContext : DbContext
+    public class SignalRContext : IdentityDbContext<AppUser, AppRole, int>
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=VICTUS;initial Catalog=SignalRDb;Integrated Security=True;TrustServerCertificate=True");
+            optionsBuilder.UseSqlServer("Server=DESKTOP-R7AR1ND;initial Catalog=SignalRDb;integrated Security=true");
         }
-
-        public DbSet<About> About { get; set; }
+        public DbSet<About> Abouts { get; set; }
         public DbSet<Booking> Bookings { get; set; }
         public DbSet<Category> Categories { get; set; }
-        public DbSet<Contacts> Contacts { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
         public DbSet<Discount> Discounts { get; set; }
         public DbSet<Feature> Features { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<SocialMedia> SocialMedias { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-
-            modelBuilder.Entity<About>()
-                .HasKey(a => a.AboutID);
-
-            modelBuilder.Entity<Booking>()
-                .HasKey(b => b.BookingID);
-
-            modelBuilder.Entity<Category>()
-                .HasKey(c => c.CategoryID);
-
-            modelBuilder.Entity<Contacts>()
-                .HasKey(c => c.ContactID);
-
-            modelBuilder.Entity<Discount>()
-                .HasKey(d => d.DiscountID);
-
-            modelBuilder.Entity<Feature>()
-                .HasKey(f => f.FeatureID);
-
-            modelBuilder.Entity<Product>()
-                .HasKey(p => p.ProductID);
-
-            modelBuilder.Entity<SocialMedia>()
-                .HasKey(sm => sm.SocialMediaID);
-
-            modelBuilder.Entity<Testimonial>()
-                .HasKey(t => t.TestimonialID);
-        }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<MoneyCase> MoneyCases { get; set; }
+        public DbSet<MenuTable> MenuTables { get; set; }
+        public DbSet<Slider> Sliders { get; set; }
+        public DbSet<Basket> Baskets { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
+        public DbSet<Message> Messages { get; set; }
     }
 }
