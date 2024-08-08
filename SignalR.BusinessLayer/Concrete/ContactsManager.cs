@@ -9,36 +9,36 @@ using SignalR.EntityLayer.Entities;
 
 namespace SignalR.BusinessLayer.Concrete
 {
-    public class ContactManager : IContactService
+    public class ContactsManager : IContactsService
     {
-        private readonly IContactDal _contactsDal;
+        private readonly IContactsDal _contactsDal;
 
-        public ContactManager(IContactDal contactsDal)
+        public ContactsManager(IContactsDal contactsDal)
         {
             _contactsDal = contactsDal;
         }
 
-        public void TAdd(Contact entity)
+        public void TAdd(Contacts entity)
         {
             _contactsDal.Add(entity);
         }
 
-        public void TDelete(Contact entity)
+        public void TDelete(Contacts entity)
         {
             _contactsDal.Delete(entity);
         }
 
-        public List<Contact> TGetAll()
+        public List<Contacts> TGetAll()
         {
             return _contactsDal.GetAll();
         }
 
-        public Contact TGetById(int id)
+        public Contacts TGetById(int id)
         {
             return _contactsDal.GetById(id);
         }
 
-        public void TUpdate(Contact entity)
+        public void TUpdate(Contacts entity)
         {
             _contactsDal.Update(entity);
         }

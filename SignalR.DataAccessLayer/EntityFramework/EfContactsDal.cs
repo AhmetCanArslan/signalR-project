@@ -10,9 +10,9 @@ using SignalR.EntityLayer.Entities;
 
 namespace SignalR.DataAccessLayer.EntityFramework
 {
-    public class EfContactDal : GenericRepository<Contact>, IContactDal
+    public class EfContactsDal : GenericRepository<Contacts>, IContactsDal
     {
-        public EfContactDal(SignalRContext context) : base(context)
+        public EfContactsDal(SignalRContext context) : base(context)
         {
         }
     }

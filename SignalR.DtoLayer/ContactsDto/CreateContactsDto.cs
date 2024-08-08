@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SignalR.DtoLayer.ContactDto
+namespace SignalR.DtoLayer.ContactsDto
 {
-    public class GetContactsDto
+    public class CreateContactsDto
     {
-        public int ContactID { get; set; }
         public string Location { get; set; }
         public string Phone { get; set; }
         public string Mail { get; set; }
