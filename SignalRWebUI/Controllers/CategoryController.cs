@@ -74,7 +74,7 @@ namespace SignalRWebUI.Controllers
 			var client = _clientFactory.CreateClient();
 			var jsonData = JsonConvert.SerializeObject(updateCategoryDto);
 			StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
-			var responseMessage = await client.PutAsync("https://localhost:7062/api/Category", content);
+			var responseMessage = await client.PutAsync("https://localhost:7062/api/Category/", content);
 			if(responseMessage.IsSuccessStatusCode)
 			{
 				return RedirectToAction("Index");
